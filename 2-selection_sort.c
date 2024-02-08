@@ -13,19 +13,22 @@ void selection_sort(int *array, size_t size)
 	size_t i, j;
 	int *smallest;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size - 1; i++)
 	{
 		/* Points to first element */
 		smallest = &array[i];
 
-		for (j = i; j < size; j++)
+		for (j = i + 1; j < size; j++)
 			if (array[j] < *smallest)
 			/* Make the pointer points to the smallest */
 				smallest = &array[j];
 
 		/* After finsh the inner loop swap the first to smallest*/
-		mySwap(&array[i], smallest);
-		print_array(array, size);
+		if (*smallest != array[i])
+		{
+			mySwap(&array[i], smallest);
+			print_array(array, size);
+		}
 	}
 }
 
