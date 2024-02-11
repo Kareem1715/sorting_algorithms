@@ -61,7 +61,7 @@ int arrayPartition(int *array, size_t size, int bgn, int lst)
 
 	for (i = bgn; i < lst; i++)
 	{
-		if (array[i] < pivot)
+		if (array[i] <= pivot)
 		{
 			j++;
 			mySwap(&array[j], &array[i]);
